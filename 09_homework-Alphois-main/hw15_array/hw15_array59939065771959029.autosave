@@ -1,0 +1,37 @@
+Ball bs[];
+Brick thicc;
+int numBall;
+color originalBrickCol;
+
+void setup() {
+  size(1000, 1000);
+  bs=new Ball[numBall];
+  for (int i=0;i<bs.length;i++){
+  bs[i]=new Ball();
+  }
+  thicc=new Brick();
+  originalBrickCol = thicc.col;
+}
+void draw() {
+  background(255);
+  if (  ( b0.detect (b1)) || ( b1.detect (b0) )  ) {
+    bs[0].c= color (255, 255, 0);
+    bs[1].c=color (255, 255, 0);
+  } else {
+    b0.c=255;
+    b1.c=255;
+  }  
+  thicc.col = originalBrickCol;
+
+  //if b0 sees thicc brick, then turn red and make brick green
+  if (b0.detect(thicc)) {
+    thicc.col= color (0, 255, 0);
+    b0.c=color (255, 0, 0);
+  }
+
+  //if b1 sees thicc brick, then turn red and make brick green
+  if (b1.detect(thicc)) {
+    thicc.col= color (0, 255, 0);
+    b1.c=color (255, 0, 0);
+  }
+}

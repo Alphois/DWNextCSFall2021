@@ -1,0 +1,41 @@
+Krishna Dudani and Nelson So
+1. toString returns the row and column of a Move object (in terms of position within the maze).
+
+2/3:I decided to rename it to "fight."
+ The thing that changed was instead of printing 
+"[ (1 1) (1 2) (1 3) ]"
+to the console, it printed
+"hw20githubSourceTester$MoveList@5fb00588." 
+I suspect this is supposed to mean that it is printing the space in memory that the string is taking up rather than the actual string
+because the string cannot be made if parsing an array of move objects without having an actual method from the move class.
+However, this is just a guess, so this could be the wrong explanation entirely. 
+
+
+4. What is the purpose of the instance variable "last" in the MoveList class?
+Last is a field variable in the MoveList clast. 
+This is also a guess that might be entirely wrong, but last is a value that is incremented during the add function. If last meets the
+temporary set limit for the length of the Move array (which is 10), then the array length will be doubled and a new array will be created.
+
+5. What does the "expand" method do? Why do you think it is there?
+the expand method instantiates a new array with doubles the length of the array made through the MoveList() default constructor.
+It then copies over the values of the old values of the MoveList() constructor's array and then sets the old array equivalent to the new array 
+(this is likely so we can keep accessing the move variable, as having to use the newList variable would just be a major pain in the ___).
+
+
+6. the remove method works by first making a new Move object which is set equal to the first move object in  given MoveList object 
+(which just as a reminder has an array field, so it means that it is set equal to the first object of that array). After it does this all objects in the moves array
+are instead set a space below what they were previously. so if Move was an array of ints {1,2,3}, then it would become {2,3,null}. the last is decremented after as
+the last # is no longer at the 2nd index, but at the first index. After all this, the new move object is returned (in this case,2). 
+remove removes from beginning*
+add adds to the end*
+
+
+7.The MoveList class helps records the pathing you take throughout the maze. Each move object within a moveList object (again keep in mind that one of the fields of moveList
+is an array of move objects) can record the pathing you must take throughout the maze - especially with the use of the toString function which prints all these objects to the 
+console (thus making it easier for the user to see what the pathing is directly).
+8. Compared to a standard array,By using the moveList class and 
+making one of the fields an array of move objects, you can now access all of Move's methods in MoveList. 
+Compared to a standard array, moveList class allows you to resize the array. Also, movelist is always big enough to store any information we place in it. 
+
+MoveList is a very specific type of data structure constructed by us the user (not native to java).
+
